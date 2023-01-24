@@ -34,8 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'super_types'
-    'supers'
+    'super_types',
+    'supers',
 ]
 
 MIDDLEWARE = [
@@ -68,9 +68,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'heroes_villian_project.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
 
@@ -115,3 +112,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+try:
+    from heroes_villian_project.local_settings import *
+    
+except ImportError:
+    pass
