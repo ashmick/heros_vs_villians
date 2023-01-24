@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 @api_view (['GET', 'POST'])
 def supers_list(request):
     if request.method== 'GET':
-        super= Supers.object.all()
+        super= Supers.objects.all()
         serializer=SuperSerializer(super, many=True)
         return Response(serializer.data)
     
@@ -20,11 +20,11 @@ def supers_list(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
 @api_view (['GET', 'PUT', 'DELETE'])
-def super_detail (request,pk):
+def supers_detail (request,pk):
     super=get_object_or_404(Supers, pk=pk)
     
     if request.method== 'GET':
-        serialzer= SuperSerializer(super)
+        serializer= SuperSerializer(super)
         return Response (serializer.data)
     
     elif request.method == 'PUT':
